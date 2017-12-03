@@ -43,7 +43,7 @@ public:
 	TInfo getTInfo();
 
 	void modifyMagic(PInfo &p,int ch);
-	std::vector<Card *> getAllMinion(PInfo &p);
+	std::vector<Card *> getAllMinion(PInfo &p=p[0]);
 	int getMagic();
 	void initPlay(int i);
 
