@@ -58,10 +58,11 @@ void ActAbility::useAbility(Player &p){
     //plays card in the player p’s hand with no target.
     
     if (summon) {
-        int actualSumNum = min(5 - p->pInfo.getCardStacks().numCards(), sumNum);
+        int cardOnBoard = p.getAllMinion().size();
+        int actualSumNum = min(5 - cardOnBoard, sumNum);
         
         for (int i = 1; i <= actualSumNum; i++) {
-            p->PInfo->board.insert(new Card ("Air Elemental"));
+            // p->PInfo->board.insert(new Card ("Air Elemental"));
         }
         
     } else if (magic) {
