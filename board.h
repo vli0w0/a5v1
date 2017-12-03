@@ -3,6 +3,7 @@
 
 #include "player.h"
 
+class Player;
 class Board{
 	Player plyr;
 
