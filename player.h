@@ -41,7 +41,7 @@ public:
 	Player(PInfo p1,PInfo p2);
 	~Player()=default;
 	TInfo getTInfo();
-	playCard(std::string CardName);
+	void playCard(std::string CardName);
 
 	void modifyMagic(PInfo &p,int ch);
 	std::vector<Card *> getAllMinion(PInfo &p=p[0]);
