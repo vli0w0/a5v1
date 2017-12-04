@@ -23,7 +23,7 @@ public:
     virtual int getAblCost();
     virtual void disenchantA();
     virtual void updateCardInfo()=0;
-    virtual CardInfo getCardInfo=0;
+    virtual CardInfo getCardInfo()=0;
 
     friend Player;
     friend PInfo;
