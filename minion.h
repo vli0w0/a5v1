@@ -51,7 +51,7 @@ public:
     
     // accessors
     std::string getType() {return "Minion"; };
-    int getACS() { return actionCountS; };   // get action count stable
+    int getACS() { return actionCountStable; };   // get action count stable
     int& getATK();
     int& getLP();
     int& getACost();
