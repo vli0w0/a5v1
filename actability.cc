@@ -84,17 +84,17 @@ void ActAbility::useAbility(Player &p){
 };
 
 
-void ActAbility::useAbility(Player &p1, Player &p2, Minion &m){
+void ActAbility::useAbility(Player &p1, Player &p2, Card *m){
     
     //player p1 plays the card. The target is the minion m under player 2.
     if (destroy) {
-        m.destroy();
+        m->destroy();
         
     } else if (damage) {
-        m.modify((-ATKchange), (-LPchange));
+        m->modify((-ATKchange), (-LPchange));
         
     } else {
-        m.modify(ATKchange, LPchange);
+        m->modify(ATKchange, LPchange);
         
     }
 };
