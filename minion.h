@@ -10,6 +10,7 @@
 #include "card.h"
 #include "actability.h"
 #include "trigability.h"
+#include "CardInfo.h"
 
 class Minion: public Card {
     
@@ -27,6 +28,8 @@ protected:
     bool silence = false;
     Ability* ability = nullptr;
     int abilityCost;
+    
+    CardInfo CInfo;
     
 public:
     Minion(std::string s);
@@ -53,6 +56,7 @@ public:
     int& getLP();
     int& getACost();
     bool& getS();
+    void updateCardInfo();
 };
 
 #endif /* minion_h */
