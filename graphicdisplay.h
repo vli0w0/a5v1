@@ -24,7 +24,7 @@ class GraphicDisplay: public Observer{
 public:
     TextDisplay();
     
-    void notify(Subject<DInfo, DState> &notifier) override;
+    void notify(Subject<DInfo, DState> &notifier);
     SubscriptionType getSubType() const override;
     void update(Subject<DInfo, DState> &notifier);
     
