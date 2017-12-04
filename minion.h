@@ -22,6 +22,7 @@ protected:
     int LP;
     
     std::vector<std::string> EnSeq;
+    std::vector<CardInfo> EnSeqInfo;
     int actionCount = 1;
     int actionCountStable = 1;
     
@@ -48,6 +49,8 @@ public:
 
     void disenchant();
     void disenchantA();
+    
+    std::vector<CardInfo> &getEnInfo();
     
     
     // accessors
