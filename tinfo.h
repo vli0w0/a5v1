@@ -10,7 +10,7 @@ class Minion;
 struct TInfo {
     PInfo *p1 = nullptr;
     PInfo *p2 = nullptr;
-    Minion *m = nullptr;
+    Card *m = nullptr;       //Minion
 };
 
 
