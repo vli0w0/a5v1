@@ -6,8 +6,8 @@
 #include "CardInfo.h"
 
 class Spell:public Card{
-	string name;
-	string description;
+	std::string name;
+	std::string description;
 	int cost;
 
 	bool destroy = false;
@@ -23,6 +23,7 @@ class Spell:public Card{
 	
 public:
 	Spell(std::string s);
+	std::string getType();
 	void play(PInfo &intr,PInfo &rcvr);
 	void play(PInfo &intr,PInfo &rcvr,bool val);
 	void play(PInfo &intr,PInfo &rcvr,int indx);
