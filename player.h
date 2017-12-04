@@ -14,7 +14,7 @@
 #include "card.h"
 #include "dstate.h"
 
-
+class PInfo;
 class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
 	TInfo tInfo;
 
