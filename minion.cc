@@ -119,3 +119,13 @@ int& Minion::getACost(){
 bool& Minion::getS(){
     return silence;
 };
+
+void updateCardInfo(){
+    CInfo.type = "Minion";
+    CInfo.name = name;
+    CInfo.cost = cost;
+    CInfo.desc = description;
+    CInfo.att = ATK;
+    CInfo.def = LP;
+    CInfo.ability_cost = abilityCost;
+};
