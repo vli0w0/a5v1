@@ -12,6 +12,7 @@
 #include "tstate.h"
 #include "pinfo.h"
 #include "card.h"
+#include "dstate.h"
 
 
 class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
