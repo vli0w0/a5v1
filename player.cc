@@ -2,6 +2,9 @@
 #include <string>
 using namespace std;
 
+extern bool TEST;
+extern bool Graphics;
+
 int MAGIC_START = 3;
 const int MAX_B_LEN = 5;
 
