@@ -3,7 +3,38 @@
 #include <fstream>
 using namespace std;
 
-Spell::Spell(string s){}
+Spell::Spell(string s){
+	istringstream strm (s);
+	
+	string s;
+	int i;
+	strm >> s;
+	name = s;
+	strm >> i;
+	cost = i;
+	
+	string desc;
+        getline(strm, desc);
+        description = desc;
+	
+	string detail;
+	strm >> detail;
+	if (detail[0] == 'd') {
+		if (detail[1] == 't') {
+			destroy = true;
+		} else { destroyEn = true; }
+	} else if (detail[0] == 'r') {
+		returnM = true;
+	} else if (detail[0] == 'g') {
+		gainCharge = true;
+		chargeVal = (detail[1] - '0');
+	} else if (detail[0] == 'n') {
+		necromacy = true;
+	} else if (detail[0] == 'a') {
+		allAtk = true;
+		atkVal = (detail[1] - '0');
+	}
+}
 
 void Spell::play(PInfo &intr,PInfo &rcvr){
 	if (necromacy){
@@ -45,11 +76,4 @@ void Spell::play(PInfo &intr,PInfo &rcvr,int indx){
 	else if (destroyEn){
 		rcvr.getBoard()[indx].disenchant();
 	}
-}
-
-void Spell::updateCardInfo(){
-    CInfo.type = "Spell";
-    CInfo.name = name;
-    CInfo.cost = cost;
-    CInfo.desc = description;
 }
