@@ -13,6 +13,8 @@
 #include "pinfo.h"
 #include "card.h"
 #include "dstate.h"
+#include "textdisplay.h"
+#include "graphicsdisplay.h"
 
 class PInfo;
 class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
