@@ -177,7 +177,7 @@ void Player::gameStart(){
 			}
 			else if (pIn == "inspect"){
 				if (pPos.size()=1){
-					p[active].getHand()[pPos[0]-1-'0'].describe();
+					p[active].getHand()[pPos[0]-1-'0']->describe();
 				}
 			}
 			else if (pIn == "board"){
