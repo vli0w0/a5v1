@@ -129,18 +129,18 @@ void TrigAbility::notify(TSubject<TInfo, TState> &whoFrom){
     if (all) {
         // In case the ability does not have a target
         // If ritual, update the total charges remaining
-        if (c.getType() == "Ritual") {
-            if (!c.canUseAbl()) return;
-            c.update();
+        if (c->getType() == "Ritual") {
+            if (!c->canUseAbl()) return;
+            c->update();
         }
-        useAbility(whoFromInfo.p1);
+        useAbility(*whoFromInfo.p1);
         
     } else {
         // In case the ability DOES have a target
-        if (c.getType() == "Ritual") {
-            if (!c.canUseAbl()) return;
-            c.update();
+        if (c->getType() == "Ritual") {
+            if (!c->canUseAbl()) return;
+            c->update();
         }
-        useAbility(whoFromInfo.p1, whoFromInfo.p2, whoFromInfo.m);
+        useAbility(*whoFromInfo.p1, *whoFromInfo.p2, *whoFromInfo.m);
     }
 };
