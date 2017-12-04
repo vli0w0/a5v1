@@ -87,6 +87,10 @@ bool PInfo::gYardEmpty(){
 	return false;
 }
 
+void PInfo::play(Card *mCard){
+	if (mCard->getType() != "Minion") return;
+	board.push_back(mCard);
+}
 void PInfo::play(int i,PInfo &p,int j){
 	int truei = i-1;
 	int truej = j-1;
