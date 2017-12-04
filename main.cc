@@ -13,7 +13,7 @@ bool EAon = true;
 
 int main(int argc,char *argv[]){
 	TEST = IOHandler::check(argc-1,&argv[1],"-testing");
-	graphics = IOHandler::check(argc-1,&argv[1],"-graphics");
+	GRAPHIC = IOHandler::check(argc-1,&argv[1],"-graphics");
 
 
 	string pInit = IOHandler::returnNString(argc-1,&argv[1],"-init");
