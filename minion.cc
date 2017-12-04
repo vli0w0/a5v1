@@ -96,6 +96,7 @@ void Minion::disenchant(){
         }
         silence = false;
     }
+    EnSeqInfo.pop_back();
 };
 
 void Minion::disenchantA(){
@@ -103,6 +104,8 @@ void Minion::disenchantA(){
         disenchant();
     }
 };
+
+vector<CardInfo> &Minion::getEnInfo(){return EnSeqInfo;}
 
 void Minion::setAct() {actionCount = actionCountStable; } 
 
