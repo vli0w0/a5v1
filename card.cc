@@ -6,3 +6,4 @@ bool Card::acting() {return true;}
 void Card::setAC(){return;}
 int Card::getAblCost(){return 0;}
 void Card::disenchantA(){return;}
+void Card::destroy(){return;}
