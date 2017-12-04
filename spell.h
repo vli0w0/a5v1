@@ -3,6 +3,7 @@
 
 #include "card.h"
 #include "pinfo.h"
+#include "CardInfo.h"
 
 class Spell:public Card{
 	string name;
@@ -17,6 +18,8 @@ class Spell:public Card{
 	bool necromacy;
 	bool allAtk;
 	int atkVal=0;
+	
+	CardInfo CInfo;
 
 	CardInfo CInfo;
 public:
