@@ -9,8 +9,8 @@ int MAGIC_START = 3;
 const int MAX_B_LEN = 5;
 
 Player::Player(PInfo p1,PInfo p2){
-    p[0] = p1;
-    p[1] = p2;
+    p.emplace_back(p1);
+    p.emplace_back(p2);
 	if (Graphics) gd = nullptr;
 }
 
