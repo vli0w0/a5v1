@@ -96,7 +96,7 @@ void Player::gameStart(){
 	while(true){
 		p[active].setMagic(MAGIC_START);
 		if (p[active].handSize() < 5){
-			(p[active].getHand()).draw();
+			p[active].draw();
 		}
 		/*startOfTurnNotify(); NOTIFY FUNCTION */
         setTState( TState::s );
@@ -109,7 +109,7 @@ void Player::gameStart(){
 		while (magic>0){
 			cmd = IOHandler::stdio();
 			string pIn = cmd->input;
-			vector<int> pPos = cmd->pos;
+			vector<char> pPos = cmd->pos;
 			Card *curr = p[active].getBoard()[pPos[0]-'0'];
 			if (pIn == "play"){
 				if (pPos.size()==1){
@@ -117,7 +117,7 @@ void Player::gameStart(){
 					if ((p[active].getBoard().back())->getType()=="Minion"){
 						/*minionEnterNotify() NOTIFY FUNCTION*/
 						setTState(TState::e);
-						tInfo = TInfo{&p[active],&p[active],p[active].getBoard().back()}
+						tInfo = TInfo{&p[active],&p[active],p[active].getBoard().back()};
 						notifyTObservers();
 					} 
 					if (checkDead(p[active],p[inactive])) break;
@@ -143,7 +143,7 @@ void Player::gameStart(){
 			}
 			else if (pIn == "discard"){
 				if (pPos.size()=1 && TEST){
-					p[active].getHand().erase(p[active]->getHand().begin()+pPos[0]-1-'0');
+					p[active].getHand().erase(p[active].getHand().begin()+pPos[0]-1-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 				}
 			}
