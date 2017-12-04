@@ -20,6 +20,7 @@ public:
     virtual void modifyAct(int mod);
     virtual bool acting();
     virtual void updateCardInfo()=0;
+    virtual CardInfo getCardInfo=0;
 
     friend Player;
     friend PInfo;
