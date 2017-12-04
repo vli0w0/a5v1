@@ -33,6 +33,7 @@ public:
     void displayBoard();
     void displayHand();
     void gameOverNotify();
+    void describe();
     
     ~TextDisplay();
     
