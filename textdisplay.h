@@ -27,7 +27,7 @@ class TextDisplay: public Observer{
 public:
     TextDisplay();
     
-    void notify(Subject<DInfo, DState> &notifier) override;
+    void notify(Subject<DInfo, DState> &notifier);
     void update(Subject<DInfo, DState> &notifier);
     DState getSubType() const;
     void displayHelp();
