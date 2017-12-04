@@ -43,19 +43,22 @@ public:
     bool acting();                  // check actionCount > 0
     void modifyAct(int);            // modify action count
     void modifyACS(int);            // modify action cound stable
-    void setAct() {actionCount = actionCountStable; } ;                 // reset action count
+    void setAct();                 // reset action count
 
     void disenchant();
     void disenchantA();
     
     
     // accessors
-    std::string getType() {return "Minion"; };
-    int getACS() { return actionCountStable; };   // get action count stable
-    int& getATK();
-    int& getLP();
-    int& getACost();
-    bool& getS();
+    std::string getType();
+    int getACS();;   // get action count stable
+    int getATK();
+    int getLP();
+    int getACost();
+    bool getS();
+    
+    void setATK(int atk);
+    void setLP(int lp);
     void updateCardInfo();
 };
 
