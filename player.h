@@ -49,6 +49,6 @@ public:
 	void initPlay(int i);
 
 	friend Board;
-}
+};
 
 #endif
