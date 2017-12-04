@@ -58,6 +58,9 @@ void Ritual::updateCardInfo(){
     CInfo.desc = description;
     int ritual_cost = ablCost;
     int ritual_charges = charges;
+}
 
+CardInfo Ritual::getCardInfo(){
+    return CInfo;
 }
 
