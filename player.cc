@@ -164,7 +164,7 @@ void Player::gameStart(){
 					p[active].use(pPos[0]-'0',&p[inactive]);
 					if (checkDead(&p[active],&p[inactive])) break;
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
-					magic -= curr.abilityCost;
+					magic -= curr->abilityCost;
 					}
 				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && curr.abilityCost <= magic){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
@@ -208,8 +208,8 @@ void Player::gameStart(){
 		}
 
 		for (int i=0;i<MAX_B_LEN;++i){
-			if (active.mDead[i]) active.toGYard(i);
-			if (inactive.mDead[i]) inactive.toGYard(i);
+			if (active.mDead(i)) active.toGYard(i);
+			if (inactive.mDead(i)) inactive.toGYard(i);
 		}
 		
 		/*EndOdTurnNotify(); NOTIFY FUNCTION */
