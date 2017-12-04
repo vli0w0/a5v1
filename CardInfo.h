@@ -21,7 +21,7 @@ struct CardInfo {
     int ritual_charges = 0;
     bool withAttDef = 0;
     std::vector<CardInfo> Enchants;
-}
+};
 
 
 #endif /* Cardinfo_h */
