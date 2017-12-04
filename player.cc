@@ -38,7 +38,7 @@ void Player::checkMDead(PInfo &atkr,int aindx,PInfo &dfdr,int dindx){
 		atkr.toGYard(aindx-1);
 		/*minionLeaveNotify(); NOTIFY FUNCTION*/
 		setTState(TState::l);
-        tInfo = TInfo{&atkr,&atkr,atkr.getGYard().back()};
+        tInfo = TInfo{&atkr,&atkr,dynamic_cast<Minion *>atkr.getGYard().back()};
 		notifyTObservers();
 	}
 	if (dfdr.mDead(dindx-1) && &atkr != &dfdr){
@@ -46,7 +46,7 @@ void Player::checkMDead(PInfo &atkr,int aindx,PInfo &dfdr,int dindx){
 		dfdr.toGYard(dindx-1);
 		/*minionLeaveNotify(); NOTIFY FUNCTION*/
 		setTState(TState::l);
-		tInfo = TInfo{&atkr,&dfdr,dfdr.getGYard().back()};
+		tInfo = TInfo{&atkr,&dfdr,dfdr.dynamic_cast<Minion *>getGYard().back()};
 		notifyTObservers();
 	}
 }
