@@ -28,24 +28,24 @@ void Enchantment::play(Card *c){
 	card=c;
 	if (info == '+'){
 		splmt = stoi(suppliment);
-		c.getATK() += splmt;
-		c.getLP() += splmt;
+		c->setATK(c->getATK() + splmt);
+		c->setLP(c->getLP + splmt);
 	}
 	else if (info == '*'){
 		splmt = stoi(suppliment);
-		c.getATK() *= splmt;
-		c.getLP() *= splmt;
+		c->setATK(c->getATK * splmt);
+		c->setLP(c->getLP * splmt);
 	}
 	else if (info == 't'){
 		splmt = stoi(suppliment);
-		c.modifyACS(splmt);
+		c->modifyACS(splmt);
 	}
 	else if (info == 'c'){
 		splmt = stoi(suppliment);
-		c.getACost() += splmt;
+		c->setACost(c->getACost() + splmt);
 	}
 	else if (info == 's'){
-		c.getS() = false;
+		c->setS(false);
 	}
 };
 
