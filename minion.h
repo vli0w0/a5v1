@@ -65,6 +65,7 @@ public:
     void setLP(int lp);
     void setSilence(bool tf);
     void updateCardInfo();
+    CardInfo getCardInfo();
 };
 
 #endif /* minion_h */
