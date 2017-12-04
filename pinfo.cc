@@ -45,6 +45,10 @@ void PInfo::draw(){
 		deck.push_back(replace);
 	}
 }
+void PInfo::play(Card *mCard){
+	if (mCard->getType() != "Minion") return;
+	hand.push_back(mCard);
+}
 
 vector<Card *> &PInfo::getGYard(){
 	return &(GYard);
