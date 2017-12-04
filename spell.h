@@ -10,18 +10,17 @@ class Spell:public Card{
 	string description;
 	int cost;
 
-	bool destroy;
-	bool returnM;
-	bool gainCharge;
-	int chargeVal;
-	bool destroyEn;
-	bool necromacy;
-	bool allAtk;
-	int atkVal=0;
+	bool destroy = false;
+	bool returnM = false;
+	bool gainCharge = false;
+	int chargeVal = 0;
+	bool destroyEn = false;
+	bool necromacy =  false;
+	bool allAtk =  false;
+	int atkVal = 0;
 	
 	CardInfo CInfo;
-
-	CardInfo CInfo;
+	
 public:
 	Spell(std::string s);
 	void play(PInfo &intr,PInfo &rcvr);
