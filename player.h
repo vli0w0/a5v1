@@ -45,7 +45,7 @@ public:
 	void playCard(std::string CardName);
 
 	void modifyMagic(PInfo &p,int ch);
-	std::vector<Card *> getAllMinion(PInfo &pif=p[0]);
+	std::vector<Card *> getAllMinion();
 	int getMagic();
 	void initPlay(int i);
 
