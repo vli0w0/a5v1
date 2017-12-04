@@ -16,7 +16,7 @@ class PInfo{
 	Card *ritual;
 
 public:
-	PInfo(std::String name,std::vector<Card *> deck,int LP=20,int magic=3);
+	PInfo(std::string name,std::vector<Card *> deck,int LP=20,int magic=3);
 	MyInfo getMyInfo() const;
 
 	int &getMagic();
