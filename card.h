@@ -19,6 +19,7 @@ public:
     virtual void modify(int Ach, int Lch);
     virtual void modifyAct(int mod);
     virtual bool acting();
+    virtual void setAC();
     virtual void updateCardInfo()=0;
     virtual CardInfo getCardInfo=0;
 
