@@ -85,3 +85,6 @@ void Spell::updateCardInfo(){
      CInfo.cost = cost;
      CInfo.desc = description;
 }
+CardInfo Spell::getCardInfo(){
+	return CInfo;
+}
