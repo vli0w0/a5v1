@@ -1,4 +1,5 @@
 #include "enchantment.h"
+using namespace std
 
 Enchantment::Enchantment(string name){
 	
