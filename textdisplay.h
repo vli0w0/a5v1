@@ -27,7 +27,6 @@ public:
     TextDisplay();
     
     void notify(Subject<DInfo, DState> &notifier) override;
-    DState getSubType() const;
     void update(Subject<DInfo, DState> &notifier);
     void displayHelp();
     void displayBoard();
