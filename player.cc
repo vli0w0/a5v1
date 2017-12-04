@@ -143,7 +143,7 @@ void Player::gameStart(){
 			}
 			else if (pIn == "discard"){
 				if (pPos.size()=1 && TEST){
-					active->getHand().erase(p[active]->getHand().begin()+pPos[0]-1-'0');
+					p[active].getHand().erase(p[active]->getHand().begin()+pPos[0]-1-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 				}
 			}
@@ -201,15 +201,15 @@ void Player::gameStart(){
 			}
 
 		}
-		for (auto p:active.getBoard()){
+		for (auto p:p[active].getBoard()){
 			if (p.getType() == "Minion"){
 				p.setAC();
 			}
 		}
 
 		for (int i=0;i<MAX_B_LEN;++i){
-			if (active.mDead(i)) active.toGYard(i);
-			if (inactive.mDead(i)) inactive.toGYard(i);
+			if (p[active].mDead(i)) p[active].toGYard(i);
+			if (p[inactive].mDead(i)) p[inactive].toGYard(i);
 		}
 		
 		/*EndOdTurnNotify(); NOTIFY FUNCTION */
