@@ -142,31 +142,31 @@ void Player::gameStart(){
 				curr->modifyAct(-1);
 			}
 			else if (pIn == "discard"){
-				if (pPos.size()=1 && TEST){
+				if (pPos.size()==1 && TEST){
 					p[active].getHand().erase(p[active].getHand().begin()+pPos[0]-1-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 				}
 			}
 			else if (pIn == "use"){
-				if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting() && magic-curr->abilityCost<0 && TEST){
+				if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting() && magic-curr->getAblCost()<0 && TEST){
 					p[active].use(pPos[0]-'0',p[inactive]);
 					if (checkDead(p[active],p[inactive])) break;
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 					magic = 0;
 				}
-				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && magic-curr->abilityCost<0 && TEST){
+				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && magic-curr->getAblCost()<0 && TEST){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					checkMDead(p[active],pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
 					magic = 0;
 				}
-				else if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting() && curr->abilityCost <= magic){
+				else if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting() && curr->getAblCost() <= magic){
 					p[active].use(pPos[0]-'0',p[inactive]);
 					if (checkDead(p[active],p[inactive])) break;
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 					magic -= curr->getAblCost();
 					}
-				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && curr->abilityCost <= magic){
+				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && curr->getAblCost() <= magic){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					checkMDead(p[active],pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
@@ -177,7 +177,7 @@ void Player::gameStart(){
 			}
 			else if (pIn == "inspect"){
 				if (pPos.size()==1){
-					td->describe(p[active].getHand()[pPos[0]-1-'0']->updateCardInfo());
+					td->describe(p[active].getHand()[pPos[0]-1-'0']->getCardInfo());
 				}
 			}
 			else if (pIn == "board"){
