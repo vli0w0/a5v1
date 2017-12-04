@@ -36,7 +36,7 @@ protected:
 	void pSwitch();
 	bool checkDead(PInfo &atkr,PInfo &dfdr);
 	void checkMDead(PInfo &atkr,int aindx,PInfo &dfdr,int dindx);
-	void notifyObservers()
+	void notifyObservers();
 
 public:
 	Player(PInfo p1,PInfo p2);
