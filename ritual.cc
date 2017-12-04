@@ -51,7 +51,7 @@ void Ritual::modify(int ablCostCh, int chargeCh){
     charges += chargeCh;
 };
 
-void updateCardInfo(){
+void Ritual::updateCardInfo(){
     CInfo.type = "Ritual";
     CInfo.name = name;
     CInfo.cost = Cost;
