@@ -33,7 +33,7 @@ protected:
     
 public:
     Minion(std::string s);
-    ~Minion() {delete ability};
+    ~Minion() {delete ability;};
     
     // check if the player has enough magic to let the minion use the ability
     bool canUseAbl(Player &p);
