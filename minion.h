@@ -44,6 +44,7 @@ public:
     void modifyAct(int);            // modify action count
     void modifyACS(int);            // modify action cound stable
     void setAct();                 // reset action count
+    void modifyACost(int i);
 
     void disenchant();
     void disenchantA();
@@ -59,6 +60,7 @@ public:
     
     void setATK(int atk);
     void setLP(int lp);
+    void setSilence(bool tf);
     void updateCardInfo();
 };
 
