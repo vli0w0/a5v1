@@ -77,3 +77,9 @@ void Spell::play(PInfo &intr,PInfo &rcvr,int indx){
 		rcvr.getBoard()[indx].disenchant();
 	}
 }
+void Spell::updateCardInfo(){
+     CInfo.type = "Spell";
+     CInfo.name = name;
+     CInfo.cost = cost;
+     CInfo.desc = description;
+}
