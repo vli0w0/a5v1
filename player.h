@@ -13,9 +13,6 @@
 #include "pinfo.h"
 #include "card.h"
 
-extern bool TEST = false;
-extern bool Graphics = false;
-
 
 class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
 	TInfo tInfo;
