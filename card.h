@@ -18,6 +18,7 @@ public:
     // modify the card's ATK and LP value
     virtual void modify(int Ach, int Lch);
     virtual void modifyAct(int mod);
+    virtual void destroy();
     virtual bool acting();
     virtual void setAC();
     virtual int getAblCost();
