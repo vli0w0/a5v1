@@ -75,23 +75,28 @@ void TrigAbility::useAbility(Player &p){
     //plays card in the player p’s hand with no target.
     
     if (summon) {
-        // int actualSumNum = min(5 - p->numCards(), sumNum);
+        int cardOnBoard = p.getAllMinion().size();
+        int actualSumNum = min(5 - cardOnBoard, sumNum);
         
         for (int i = 1; i <= actualSumNum; i++) {
-            // p->PInfo->deck.insert(new Card ("Air Elemental"));
+            p.playCard("Air Elemental");
         }
         
     } else if (magic) {
-        // p->magic += magIncre;
+        p.modifyMagic(p);
         
     } else if (destroy) {
         
         //destroy opposite player's all minions
+        for ( auto minion: p.getAllMinion()) {
+            minion.destroy();
+        };
         
     } else {
         
-        // auto (p->minions()) {
-            //change atk/lp values
+        for ( auto minion: p.getAllMinion()) {
+            minion.modify(ATKchange, LPchange);
+        };
     }
 };
 
@@ -99,14 +104,14 @@ void TrigAbility::useAbility(Player &p){
 void TrigAbility::useAbility(Player &p1, Player &p2, Minion &m){
     //player p1 plays the card. The target is the minion m under player 2.
     if (destroy) {
-        // m->tograveyard();
+        m.destroy();
         
     } else if (damage) {
-        // m->LP -= LPchange;
-        // m->ATK -= ATKchange;
+        m.modify((-ATKchange), (-LPchange));
+        
     } else {
-        // m->LP += LPchange;
-        // m->ATK += ATKchange;
+        m.modify(ATKchange, LPchange);
+        
     }
 };
 
