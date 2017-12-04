@@ -59,3 +59,6 @@ void Enchantment::updateCardInfo(){
     CInfo.def = DEF;
     CInfo.withAttDef = withATKDef;
 }
+CardInfo Enchantment::getCardInfo(){
+	return CInfo;
+}
