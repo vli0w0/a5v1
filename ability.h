@@ -1,7 +1,7 @@
 #ifndef ability_h
 #define ability_h
 
-class Player;
+class PInfo;
 class Minion;
 class Card;
 
@@ -27,8 +27,8 @@ protected:
 public:
     Ability() = default;
     virtual ~Ability(){};
-    virtual void useAbility(Player &p) = 0;
-    virtual void useAbility(Player &p1, Player &p2, Minion &m) = 0;
+    virtual void useAbility(PInfo &p) = 0;
+    virtual void useAbility(PInfo &p1, PInfo &p2, Card *m) = 0;
 };
 
 
