@@ -20,6 +20,7 @@ struct CardInfo {
     int ritual_cost = 0;
     int ritual_charges = 0;
     bool withAttDef = 0;
+    vector<CardInfo> Enchants;
 };
 
 
