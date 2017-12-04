@@ -15,7 +15,7 @@ public:
     virtual String getType();
     
     // modify the card's ATK and LP value
-    virtual modify(int Ach, int Lch);
+    virtual void modify(int Ach, int Lch);
 
     friend Player;
     friend PInfo;
