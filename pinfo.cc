@@ -172,9 +172,9 @@ void PInfo::use(int i,PInfo &p,int j){
 	int truej=j-1;
 	if (board[truei].getType() != "Minion" || !board[truei].canUseAbl()) return;
 	if (j==0){
-		board[truei].useAbility(&p);
+		board[truei].useAbility(p);
 	}
 	else{
-		board[truei].useAbility(&(*this),p,&(*p->getBoard()[truej]))}
-}
+		board[truei].useAbility(*this,p,&(*p->getBoard()[truej]))}
+
 
