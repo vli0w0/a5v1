@@ -104,21 +104,21 @@ void Minion::disenchantA(){
     }
 };
 
-int& Minion::getATK() {
-    return ATK;
-};
+void Minion::setAct() {actionCount = actionCountStable; } 
 
-int& Minion::getLP() {
-    return LP;
-};
+string Minion::getType() {return "Minion"; }
 
-int& Minion::getACost(){
-    return abilityCost;
-};
+int Minion::getACS(){ return actionCountStable; }
+int Minion::getATK() { return ATK;};
+int Minion::getLP() {return LP;};
+int Minion::getACost(){return abilityCost;};
 
-bool& Minion::getS(){
-    return silence;
-};
+bool Minion::getS(){ return silence;};
+
+void Minion::setATK(int atk){ATK = atk;}
+void Minion::setLP(int lp){LP = lp;}
+void Minion::setACost(int cost){abilityCost = cost;}
+void Minion::setSilence(bool si){silence = si;}
 
 void Minion::updateCardInfo(){
     CInfo.type = "Minion";
