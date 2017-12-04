@@ -19,7 +19,7 @@ struct Holder{
 
 class IOHandler{
 public:
-	static std::unique_ptr<Holder> stdio(std::istream in=std::cin);
+	static std::unique_ptr<Holder> stdio(std::istream &in=std::cin);
 	static std::string fileRead(std::string name);
 	static std::vector<Card *> makeDeck(std::string name="default.deck");
 	static bool check(int length,char *cmds[],std::string check);
