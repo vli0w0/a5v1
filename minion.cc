@@ -106,6 +106,10 @@ void Minion::disenchantA(){
 
 void Minion::setAct() {actionCount = actionCountStable; } 
 
+void Minion::modifyACost(int i){
+    actionCount += i;
+}
+
 string Minion::getType() {return "Minion"; }
 
 int Minion::getACS(){ return actionCountStable; }
@@ -117,7 +121,6 @@ bool Minion::getS(){ return silence;};
 
 void Minion::setATK(int atk){ATK = atk;}
 void Minion::setLP(int lp){LP = lp;}
-void Minion::setACost(int cost){abilityCost = cost;}
 void Minion::setSilence(bool si){silence = si;}
 
 void Minion::updateCardInfo(){
