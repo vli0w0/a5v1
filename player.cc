@@ -170,14 +170,14 @@ void Player::gameStart(){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					checkMDead(p[active],pPos[0]-'0',&p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
-					magic -= curr.abilityCost;
+					magic -= curr->abilityCost;
 				}
 				curr->modifyAct(-1);
 	
 			}
 			else if (pIn == "inspect"){
-				if (pPos.size()=1){
-					td->describe(p[active].getHand()[pPos[0]-1-'0'].updateCardInfo());
+				if (pPos.size()==1){
+					td->describe(p[active].getHand()[pPos[0]-1-'0']->updateCardInfo());
 				}
 			}
 			else if (pIn == "board"){
@@ -202,8 +202,8 @@ void Player::gameStart(){
 
 		}
 		for (auto pos:p[active].getBoard()){
-			if (pos.getType() == "Minion"){
-				pos.setAC();
+			if (pos->getType() == "Minion"){
+				pos->setAC();
 			}
 		}
 
