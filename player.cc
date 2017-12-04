@@ -3,7 +3,7 @@
 using namespace std;
 
 extern bool TEST;
-extern bool Graphics;
+extern bool GRAPHIC;
 
 int MAGIC_START = 3;
 const int MAX_B_LEN = 5;
