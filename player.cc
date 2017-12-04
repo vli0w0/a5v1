@@ -80,6 +80,11 @@ void Player::initPlay(int i){
 	}
 }
 
+void Player::playCard(string CardName){
+	Card *mCard = new Minion(CardName);
+	p[active].play(mCard);
+}
+
 int Player::getMagic(){
 	return p[active].getMagic();
 }
