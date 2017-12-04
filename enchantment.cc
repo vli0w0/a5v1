@@ -42,10 +42,10 @@ void Enchantment::play(Card *c){
 	}
 	else if (info == 'c'){
 		splmt = stoi(suppliment);
-		c->setACost(splmt);
+		c->modifyACost(splmt);
 	}
 	else if (info == 's'){
-		c->setS(false);
+		c->setSilence(true);
 	}
 };
 
