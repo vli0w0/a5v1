@@ -4,7 +4,6 @@
 #include <string>
 #include "player.h"
 #include "pinfo.h"
-using namespace std;
 
 class Player;
 class PInfo;
@@ -14,7 +13,7 @@ public:
     virtual ~Card() = 0;
     
     // return the card type (Minion, Enchantment, Spell, or Ritual)
-    virtual String getType();
+    virtual std::string getType();
     
     // modify the card's ATK and LP value
     virtual void modify(int Ach, int Lch);
