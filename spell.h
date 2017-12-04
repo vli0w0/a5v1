@@ -28,6 +28,7 @@ public:
 	void play(PInfo &intr,PInfo &rcvr,bool val);
 	void play(PInfo &intr,PInfo &rcvr,int indx);
 	void updateCardInfo();
+	CardInfo getCardInfo();
 };
 
 #endif
