@@ -11,7 +11,7 @@ const int MAX_B_LEN = 5;
 Player::Player(PInfo p1,PInfo p2){
     p.emplace_back(p1);
     p.emplace_back(p2);
-	if (Graphics) gd = nullptr;
+	if (!GRAPHIC) gd = nullptr;
 }
 
 TInfo Player::getTInfo(){
@@ -38,7 +38,7 @@ void Player::checkMDead(PInfo &atkr,int aindx,PInfo &dfdr,int dindx){
 		atkr.toGYard(aindx-1);
 		/*minionLeaveNotify(); NOTIFY FUNCTION*/
 		setTState(TState::l);
-        tInfo = TInfo{*atkr,*atkr,atkr.getGYard().back()};
+        tInfo = TInfo{&atkr,&atkr,atkr.getGYard().back()};
 		notifyTObservers();
 	}
 	if (dfdr.mDead(dindx-1) && &atkr != &dfdr){
@@ -46,7 +46,7 @@ void Player::checkMDead(PInfo &atkr,int aindx,PInfo &dfdr,int dindx){
 		dfdr.toGYard(dindx-1);
 		/*minionLeaveNotify(); NOTIFY FUNCTION*/
 		setTState(TState::l);
-		tInfo = TInfo{*atkr,*dfdr,dfdr.getGYard().back()};
+		tInfo = TInfo{&atkr,&dfdr,dfdr.getGYard().back()};
 		notifyTObservers();
 	}
 }
@@ -65,9 +65,9 @@ void Player::modifyMagic(PInfo &p, int ch){
 	p.setMagic(ch);
 }
 
-vector <Card *> Player::getAllMinion(PInfo &pif){
+vector <Card *> Player::getAllMinion(){
 	vector<Card *> v;
-	vector<Card *> board=p.getBoard();
+	vector<Card *> board=p[active].getBoard();
     for (auto p:board){
 		if (p->getType()=="Minion"){
 			v.emplace_back(p);
