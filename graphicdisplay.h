@@ -19,7 +19,7 @@
 class CardType;
 
 class GraphicDisplay: public Observer{
-    vector<card_template_t> veccard;
+    std::vector<card_template_t> veccard;
     std::vector<card_template_t> vechand;
 public:
     TextDisplay();
