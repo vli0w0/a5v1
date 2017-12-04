@@ -21,6 +21,8 @@ protected:
     int ablCost;
     int charges;
     
+    CardInfo CInfo;
+    
 public:
     Ritual(string s);
     ~Ritual(){delete ability};
@@ -34,6 +36,7 @@ public:
     void modify(int ablCostCh, int chargeCh);
     string getType() {return "Ritual"; };
     int& getATK() {return 0};
+    void updateCardInfo();
 };
 
 #endif /* ritual_h */
