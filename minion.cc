@@ -121,6 +121,7 @@ int Minion::getLP() {return LP;};
 int Minion::getACost(){return abilityCost;};
 
 bool Minion::getS(){ return silence;};
+int Minion::getAblCost(){return abilityCost};
 
 void Minion::setATK(int atk){ATK = atk;}
 void Minion::setLP(int lp){LP = lp;}
