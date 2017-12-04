@@ -25,7 +25,7 @@ public:
 	void setMagic(int);
 	void changeLP(int k);
 
-	void play(int i,PInfo &p);
+	void play(Card *mCard);
 	bool dead() const;
 	void toGYard(int i);
 	bool mDead(int i);
