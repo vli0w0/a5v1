@@ -5,6 +5,7 @@
 #include <memory>
 #include "card.h"
 #include "myinfo.h"
+#include "CardInfo.h"
 
 class PInfo{
 	std::string name;
@@ -14,15 +15,17 @@ class PInfo{
 	std::vector<Card *> hand;
 	std::vector<Card *> deck;
 	Card *ritual;
+    MyInfo MyI;
 
 public:
-	PInfo(std::string name,std::vector<Card *> deck,int LP=20,int magic=3);
-	MyInfo getMyInfo() const;
+	PInfo(std::String name,std::vector<Card *> deck,int LP=20,int magic=3);
+	void updateMyInfo();
 
 	int &getMagic();
-	int setMagic(int);
+	int setMagic();
 	void changeLP(int k);
-	
+
+	void play(int i,PInfo &p);
 	bool dead() const;
 	void toGYard(int i);
 	bool mDead(int i);
@@ -38,12 +41,11 @@ public:
 	bool boardFull();
 	bool handFull();
 	bool gYardEmpty();
-
-
-	void play(Card *mCard); //used only for summoning
+	
 	void play(int i,PInfo &p,int j=0);
 	void attack(int i,PInfo &p,int j=0);
 	void use(int i,PInfo &p,int j=0);
+    
 };
 
 #endif
