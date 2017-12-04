@@ -3,7 +3,7 @@
 #include <fstream>
 using namespace std;
 
-string getType() {return "Spell";}
+string Spell::getType() {return "Spell";}
 
 Spell::Spell(string s){
 	istringstream strm (s);
