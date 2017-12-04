@@ -5,8 +5,6 @@
 #include "CardInfo.h"
 #include "subject.h"
 
-struct DState{
-  string state;
-};
+enum class dstate{Both, TextOnly};
 
 #endif
