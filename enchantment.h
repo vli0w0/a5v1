@@ -24,6 +24,7 @@ public:
 	std::string getType() {return "Enchantment"; };
 	void play(Card *c);
 	void updateCardInfo();
+	CardInfo getCardInfo();
 };
 
 
