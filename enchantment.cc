@@ -47,6 +47,7 @@ void Enchantment::play(Card *c){
 	else if (info == 's'){
 		c->setSilence(true);
 	}
+	c->getEnInfo().push_back(CInfo);
 };
 
 void Enchantment::updateCardInfo(){
