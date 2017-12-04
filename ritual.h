@@ -36,7 +36,7 @@ public:
     
     void modify(int ablCostCh, int chargeCh);
     string getType() {return "Ritual"; };
-    int& getATK() {return 0};
+    int& getATK() {return 0;};
     void updateCardInfo();
 };
 
