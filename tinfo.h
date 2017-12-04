@@ -8,8 +8,8 @@ class Player;
 class Minion;
 
 struct TInfo {
-    Player *p1 = nullptr;
-    Player *p2 = nullptr;
+    PInfo *p1 = nullptr;
+    PInfo *p2 = nullptr;
     Minion *m = nullptr;
 };
 
