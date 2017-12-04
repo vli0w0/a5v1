@@ -54,7 +54,7 @@ void PInfo::setMagic(int mana){
 	magic = mana;
 }
 
-int &PInfo::getMagic(){
+int PInfo::getMagic(){
 	return magic;
 }
 
