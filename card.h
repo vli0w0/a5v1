@@ -21,6 +21,7 @@ public:
     virtual bool acting();
     virtual void setAC();
     virtual int getAblCost();
+    virtual void disenchantA();
     virtual void updateCardInfo()=0;
     virtual CardInfo getCardInfo=0;
 
