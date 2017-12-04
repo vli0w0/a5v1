@@ -20,7 +20,7 @@ class PInfo;
 class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
 	TInfo tInfo;
 
-	std::vector<PInfo> p (2);
+	std::vector<PInfo> p;
 	int active = 0;
 	int inactive = 1;
 
