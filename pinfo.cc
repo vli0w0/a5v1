@@ -1,11 +1,23 @@
 #include "pinfo.h"
 using namespace std;
 
-PInfo::PInfo(string name,vector<Card *> v; deck,int LP,int magic):
+PInfo::PInfo(string name,vector<Card *> deck,int LP,int magic):
 name{name},deck{deck},LP{LP},magic{magic}{}
 
-MyInfo PInfo::getMyInfo(){
-	return res{name,LP,magic,hand,board,GYard.back(),ritual};
+void PInfo::updateMyInfo(){
+    vector<CardInfo> MyHand;
+    vector<CardInfo> MyBoard;
+    for (int i = 0; i < hand.size(); i++) {
+        CardInfo temp = updateCardInfo(hand[i]);
+        MyHand.emplace_back(temp);
+    }
+    for (int i = 0; i < board.size(); i++) {
+        CardInfo temp = updateCardInfo(board[i]);
+        MyBoard.emplace_back(temp);
+    }
+    CardInfo CGY = getCardInfo(GYard.back());
+    CardInfo Critual = updateCardInfo(ritual);
+	return MyInfo{name,LP,magic,MyHand,MyBoard,CGY,Critual};
 }
 
 bool PInfo::dead(){
@@ -87,10 +99,6 @@ bool PInfo::gYardEmpty(){
 	return false;
 }
 
-void PInfo::play(Card *mCard){
-	if (mCard->getType() != "Minion") return;
-	board.push_back(mCard);
-}
 void PInfo::play(int i,PInfo &p,int j){
 	int truei = i-1;
 	int truej = j-1;
@@ -165,3 +173,4 @@ void PInfo::use(int i,PInfo &p,int j){
 	else{
 		board[truei].useAbility(&(*this),p,&(*p->getBoard()[truej]))}
 }
+
