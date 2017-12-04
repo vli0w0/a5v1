@@ -120,23 +120,23 @@ void Player::gameStart(){
 						tInfo = TInfo{&p[active],&p[active],p[active].getBoard().back()}
 						notifyTObservers();
 					} 
-					if (checkDead(&p[active],&p[inactive])) break;
+					if (checkDead(p[active],p[inactive])) break;
 				}
 				else if (pPos.size()==3 && (pPos[1]-'0' == 1 || pPos[1]-'0' ==2)){
 					p[active].play(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
-					checkMDead(&p[active],pPos[0]-'0',&p[pPos[1]-1-'0'],pPos[2]-'0');
+					checkMDead(p[active],pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
 				}
 			}
 			else if (pIn == "attack"){
 				if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting()){
-					p[active].attack(pPos[0]-'0',&p[inactive]);
-					if (checkDead(&p[active],&p[inactive])) break;
+					p[active].attack(pPos[0]-'0',p[inactive]);
+					if (checkDead(p[active],p[inactive])) break;
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 				}
 				else if (pPos.size()==2 && curr->getType()== "Minion" && curr->acting()){
-					p[active].attack(pPos[0]-'0',&p[inactive],pPos[1]-'0');
-					checkMDead(&p[active],pPos[0]-'0',&p[inactive],pPos[1]-'0');
+					p[active].attack(pPos[0]-'0',p[inactive],pPos[1]-'0');
+					checkMDead(p[active],pPos[0]-'0',p[inactive],pPos[1]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
 				}
 				curr->modifyAct(-1);
@@ -149,26 +149,26 @@ void Player::gameStart(){
 			}
 			else if (pIn == "use"){
 				if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting() && magic-curr->abilityCost<0 && TEST){
-					p[active].use(pPos[0]-'0',&p[inactive]);
-					if (checkDead(&p[active],&p[inactive])) break;
+					p[active].use(pPos[0]-'0',p[inactive]);
+					if (checkDead(p[active],p[inactive])) break;
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 					magic = 0;
 				}
 				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && magic-curr->abilityCost<0 && TEST){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
-					checkMDead(&p[active],pPos[0]-'0',&p[pPos[1]-1-'0'],pPos[2]-'0');
+					checkMDead(p[active],pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
 					magic = 0;
 				}
 				else if (pPos.size()==1 && curr->getType()== "Minion" && curr->acting() && curr->abilityCost <= magic){
-					p[active].use(pPos[0]-'0',&p[inactive]);
-					if (checkDead(&p[active],&p[inactive])) break;
+					p[active].use(pPos[0]-'0',p[inactive]);
+					if (checkDead(p[active],p[inactive])) break;
 					/*HARRIS' NOTIFY FUNCTION FOR PLAYER DAMAGE*/
 					magic -= curr->getAblCost();
 					}
 				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && curr->abilityCost <= magic){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
-					checkMDead(p[active],pPos[0]-'0',&p[pPos[1]-1-'0'],pPos[2]-'0');
+					checkMDead(p[active],pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
 					magic -= curr->getAblCost();
 				}
