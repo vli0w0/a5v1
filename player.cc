@@ -65,7 +65,7 @@ void Player::modifyMagic(PInfo &p, int ch){
 	p.setMagic(ch);
 }
 
-vector <Card *> Player::getAllMinion(PInfo &p){
+vector <Card *> Player::getAllMinion(PInfo &pif){
 	vector<Card *> v;
 	vector<Card *> board=p.getBoard();
     for (auto p:board){
