@@ -62,22 +62,22 @@ void ActAbility::useAbility(Player &p){
         int actualSumNum = min(5 - cardOnBoard, sumNum);
         
         for (int i = 1; i <= actualSumNum; i++) {
-            // p->PInfo->board.insert(new Card ("Air Elemental"));
+            p.playCard("Air Elemental");
         }
         
     } else if (magic) {
-        p->PInfo.modifyMagic(p);
+        p.modifyMagic(p);
         
     } else if (destroy) {
         
         //destroy opposite player's all minions
-        auto (p->pInfo.getCardStack().getMinions() &minion) {
+        for ( auto minion: p.getAllMinion()) {
             minion.destroy();
         };
         
     } else {
         
-        auto (p->pInfo.getCardStack().getMinions() &minion) {
+        for ( auto minion: p.getAllMinion()) {
             minion.modify(ATKchange, LPchange);
         };
     }
