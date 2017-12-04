@@ -13,7 +13,7 @@
 class TrigAbility: public Ability, public Observer<TInfo, TState>{
     
 private:
-    TState trigType;
+    TState trigType = TState::u;
   
 public:
     TrigAbility(std::istringstream &iss, Card *card);
