@@ -120,7 +120,7 @@ bool& Minion::getS(){
     return silence;
 };
 
-void updateCardInfo(){
+void Minion::updateCardInfo(){
     CInfo.type = "Minion";
     CInfo.name = name;
     CInfo.cost = cost;
