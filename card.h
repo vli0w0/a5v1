@@ -17,6 +17,7 @@ public:
     
     // modify the card's ATK and LP value
     virtual void modify(int Ach, int Lch);
+    virtual void mofifyACT(int mod);
 
     friend Player;
     friend PInfo;
