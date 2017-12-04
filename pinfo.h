@@ -21,8 +21,8 @@ public:
 	PInfo(std::String name,std::vector<Card *> deck,int LP=20,int magic=3);
 	void updateMyInfo();
 
-	int &getMagic();
-	int setMagic();
+	int getMagic();
+	void setMagic(int);
 	void changeLP(int k);
 
 	void play(int i,PInfo &p);
