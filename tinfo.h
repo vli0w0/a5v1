@@ -8,9 +8,9 @@ class Player;
 class Minion;
 
 struct TInfo {
-    Player *p1;
-    Player *p2;
-    Minion *m;
+    Player *p1 = nullptr;
+    Player *p2 = nullptr;
+    Minion *m = nullptr;
 };
 
 
