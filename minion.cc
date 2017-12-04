@@ -134,4 +134,11 @@ void Minion::updateCardInfo(){
     CInfo.att = ATK;
     CInfo.def = LP;
     CInfo.ability_cost = abilityCost;
-};
+    CInfo.Enchants = EnSeqInfo;
+}
+
+CardInfo Minion::getCardInfo(){
+    return CInfo;
+}
+
+
