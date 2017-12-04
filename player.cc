@@ -201,9 +201,9 @@ void Player::gameStart(){
 			}
 
 		}
-		for (auto p:p[active].getBoard()){
-			if (p.getType() == "Minion"){
-				p.setAC();
+		for (auto pos:p[active].getBoard()){
+			if (pos.getType() == "Minion"){
+				pos.setAC();
 			}
 		}
 
