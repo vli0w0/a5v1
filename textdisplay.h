@@ -1,5 +1,5 @@
 //
-//  TextDisplay.h
+//  TextDisplay.hpp
 //  CS246
 //
 //  Created by Yunkun Yang on 2017-11-29.
@@ -39,4 +39,5 @@ public:
 
 
 #endif /* TextDisplay_h */
+
 
