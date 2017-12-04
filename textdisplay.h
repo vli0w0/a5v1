@@ -19,6 +19,7 @@
 #include <string>
 
 class CardType;
+class DState;
 
 class TextDisplay: public Observer{
     std::vector<card_template_t> veccard;
