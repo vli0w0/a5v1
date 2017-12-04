@@ -168,7 +168,7 @@ void Player::gameStart(){
 					}
 				else if (pPos.size()==3 && pPos[1]-'0'<=1 && curr->getType()== "Minion" && curr->acting() && curr->abilityCost <= magic){
 					p[active].use(pPos[0]-'0',p[pPos[1]-1-'0'],pPos[2]-'0');
-					checkMDead(&p[active],pPos[0]-'0',&p[pPos[1]-1-'0'],pPos[2]-'0');
+					checkMDead(p[active],pPos[0]-'0',&p[pPos[1]-1-'0'],pPos[2]-'0');
 					/*HARRIS' NOTIFY FUNCTION FOR MINION DAMAGE OR DEATH*/
 					magic -= curr.abilityCost;
 				}
