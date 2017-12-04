@@ -4,6 +4,7 @@
 #include <string>
 #include "pinfo.h"
 #include "card.h"
+#include "CardInfo.h"
 
 class Enchantment:public Card{
 	std::string name;
@@ -15,11 +16,14 @@ class Enchantment:public Card{
 
 	Card *card=nullptr;
 	std::string enchant="";
+	
+	CardInfo CInfo;
 
 public:
 	Enchantment(std::string name);
 	std::string getType() {return "Enchantment"; };
 	void play(Card *c);
+	void updateCardInfo();
 };
 
 
