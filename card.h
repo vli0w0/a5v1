@@ -13,7 +13,7 @@ public:
     virtual ~Card() = 0;
     
     // return the card type (Minion, Enchantment, Spell, or Ritual)
-    virtual std::string getType();
+    virtual std::string getType() = 0;
     
     // modify the card's ATK and LP value
     virtual void modify(int Ach, int Lch);
