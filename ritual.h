@@ -26,7 +26,7 @@ protected:
     
 public:
     Ritual(string s);
-    ~Ritual(){delete ability};
+    ~Ritual(){delete ability;};
     
     // check if the ritual has enough magic/charge to use the ability
     bool canUseAbl();
