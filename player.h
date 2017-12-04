@@ -14,7 +14,7 @@
 #include "card.h"
 #include "dstate.h"
 #include "textdisplay.h"
-#include "graphicsdisplay.h"
+#include "graphicdisplay.h"
 
 class PInfo;
 class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
@@ -28,7 +28,7 @@ class Player: public Subject<DInfo, DState>, public TSubject<TInfo, TState> {
 	bool gameOver=false;
 
 	TextDisplay *td;
-	GraphicsDisplay *gd;
+	GraphicDisplay *gd;
 
 	void gameStart();
 
