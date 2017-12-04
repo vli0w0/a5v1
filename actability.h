@@ -6,6 +6,9 @@
 #include <fstream>
 #include "ability.h"
 
+class Player;
+class Card;
+
 class ActAbility: public Ability{
  
 public:
