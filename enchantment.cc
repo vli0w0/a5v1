@@ -1,8 +1,21 @@
 #include "enchantment.h"
 
 Enchantment::Enchantment(string name){
-
-
+	
+	istringstream strm (s);
+    
+    	string str;
+	int i
+    	strm >> str;
+	strm >> i;
+    	name = str;
+	cost = i;
+	
+	getline(strm, str);
+	desc = str;
+	
+	strm >> str;;
+	enchant = str;
 };
 
 void Enchantment::play(Card *c){
