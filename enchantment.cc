@@ -33,4 +33,14 @@ void Enchantment::play(Card *c){
 	else if (info == 's'){
 		c.getS() = false;
 	}
+};
+
+void Enchantment::updateCardInfo(){
+    CInfo.type = "Enchantment";
+    CInfo.name = name;
+    CInfo.cost = cost;
+    CInfo.desc = descn;
+    CInfo.att = ATK;
+    CInfo.def = DEF;
+    CInfo.withAttDef = withATKDef;
 }
