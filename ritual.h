@@ -9,6 +9,7 @@
 #include "ability.h"
 #include "trigability.h"
 #include "card.h"
+#include "CardInfo.h"
 using namespace std;
 
 class Ritual: public Card {
