@@ -14,6 +14,7 @@
 #include "subject.h"
 #include "ascii_graphics.h"
 #include "SubscriptionType.h"
+#include "dstate.h"
 #include <vector>
 #include <string>
 
