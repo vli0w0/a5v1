@@ -6,6 +6,8 @@
 #include "pinfo.h"
 using namespace std;
 
+class Player;
+class PInfo;
 class Card {
     
 public:
