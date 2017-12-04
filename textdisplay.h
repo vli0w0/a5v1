@@ -28,6 +28,7 @@ public:
     
     void notify(Subject<DInfo, DState> &notifier) override;
     void update(Subject<DInfo, DState> &notifier);
+    DState getSubType() const;
     void displayHelp();
     void displayBoard();
     void displayHand();
