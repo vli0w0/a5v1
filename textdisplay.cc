@@ -1,3 +1,11 @@
+//
+//  TextDisplay.cpp
+//  CS246
+//
+//  Created by Yunkun Yang on 2017-11-29.
+//  Copyright © 2017 611. All rights reserved.
+//
+
 #include "textdisplay.h"
 #include "CardType.h"
 #include "iostream"
@@ -10,6 +18,7 @@
 #include "enchantment.h"
 #include "DInfo.h"
 #include "card.h"
+#include <string>
 using namespace std;
 
 TextDisplay::TextDisplay(){
@@ -54,143 +63,130 @@ SubscriptionType TextDisplay::getSubType() const{
 
 void TextDisplay::update(Subject<DInfo, State> &notifier){
     struct DInfo f = notifier.getInfo();
-    struct MyInfo p1 = f.p1;
-    struct MyInfo p2 = f.p2;
+    struct MyInfo* p1 = f.P1;
+    struct MyInfo* p2 = f.P2;
     
     
-    card_template_t p1card = display_player_card(1,p1.pName,p1.life,p1.mana);
-    card_template_t p2card = display_player_card(2,p2.pName,p2.life,p2.mana);
+    card_template_t p1card = display_player_card(1,p1->pName,p1->life,p1->mana);
+    card_template_t p2card = display_player_card(2,p2->pName,p2->life,p2->mana);
     veccard[17] = p1card;
     veccard[2] = p2card;
     
 //// From here, all cards should use field names from different types of cards
     
     
-    if(!p1.pRitual){
-        card_template_t p1Ritual = display_ritual(p1.pRitual->name,p1.pRitual->cost,p1.pRitual->ablCost;
-                                                  p1.pRitual->description,p1.pRitual->charge;
-                                                  );
+    if(p1->pRitual.type == "Ritual"){
+        
+        card_template_t p1Ritual = display_ritual(p1->pRitual.name,p1->pRitual.cost,p1->pRitual.ritual_cost,
+                                                  p1->pRitual.desc,p1->pRitual.ritual_charges);
         veccard[15] = p2card;
     }
     
-    if(!p2.pRitual){
-        card_template_t p1Ritual = display_ritual(p2.pRitual->name,p2.pRitual->cost,p2.pRitual->ablCost;
-                                                  p2.pRitual->description,p2.pRitual->charge;
-                                                  )
+    if(p2->pRitual.type == "Ritual"){
+        card_template_t p1Ritual = display_ritual(p2->pRitual.name,p2->pRitual.cost,p2->pRitual.ritual_cost,
+                                                  p2->pRitual.desc,p2->pRitual.ritual_charges);
         veccard[0] = p2card;
     }
     
-    if(!p1.pGYard){
-        card_template_t p1GY = display_minion_activated_ability(p1.pGYard->name,p1.pGYard->cost,
-                                                                p1.pGYard->ATK,p1.pGYard->LP,
-                                                                    p1.pGYard->abilityCost, p1.pGYard->description);
+    if(p1->pGYard.type == "Minion"){
+        card_template_t p1GY = display_minion_activated_ability(p1->pGYard.name,p1->pGYard.cost,
+                                                                p1->pGYard.att,p1->pGYard.def,
+                                                                    p1->pGYard.ability_cost, p1->pGYard.desc);
         veccard[15] = p1GY;
     }
     
-    if(p2.pGYard){
-        card_template_t p2GY = display_minion_activated_ability(p2.pGYard->name,p2.pGYard->cost,
-                                                                p2.pGYard->ATK,p2.pGYard->LP,
-                                                                p2.pGYard->abilityCost, p2.pGYard->description);
+    if(p2->pGYard.type == "Minion"){
+        card_template_t p2GY = display_minion_activated_ability(p2->pGYard.name,p2->pGYard.cost,
+                                                                p2->pGYard.att,p2->pGYard.def,
+                                                                p2->pGYard.ability_cost, p2->pGYard.desc);
         veccard[4] = p2GY;
     }
     
-    CardStack board1 = p1.pBoard;
-    CardStack board2 = p2.pBoard;
+    vector<CardInfo> board1 = p1->pBoard;
+    vector<CardInfo> board2 = p2->pBoard;
     
     for (int i = 0; i < board1.size(); i++) {
-        CardType temptype = board1[i]->getType();
+        string temptype = board1[i].type;
+        CardInfo temp = board1[i];
+        card_template_t p1temp;
         
-        if(temptype == CardType::Minion){
-            CardType temp = CardType::Minion;
-            temp = board1[i];
+        if(temptype == "Minion"){
             
-            if(temp->silence){
-                card_template_t p1temp = display_minion_activated_ability(temp->name,temp->cost,temp->ATK,
-                                                                          temp->LP, temp->abilityCost, temp->description);
+            
+            if(temp.ability_cost != 0){
+                p1temp = display_minion_activated_ability(temp.name,temp.cost,temp.att,
+                                                                          temp.def, temp.ability_cost, temp.desc);
             }
             else{
-                card_template_t p1temp = display_minion_activated_ability(temp->name,temp->cost,
-                                                                          temp->ATK,temp->LP, temp->description)
-            }
+                p1temp = display_minion_activated_ability(temp.name,temp.cost,
+                                                                          temp.att,temp.def, temp.desc)
+            };
         }
         
-        if(temptype == CardType::Spell){
-            CardType temp = CardType::Spell;
-            temp = board1[i];
-            card_template_t p1temp = display_spell(temp->name,temp->cost,temp->description);
+        if(temptype == "Spell"){
+            p1temp = display_spell(temp.name,temp.cost,temp.desc);
         }
         
-        if(temptype == CardType::Enchantment){
-            CardType temp = CardType::Enchantment;
-            temp = board1[i];
-            
-            if(temp->withATKDef){
-                card_template_t p1temp =  display_enchantment_attack_defence(temp->name,temp->cost,temp->desc,
-                                                                             temp->ATK,temp->DEF);
+        if(temptype == "Enchantment"){
+            if(temp.withAttDef){
+                p1temp =  display_enchantment_attack_defence(temp.name,temp.cost,temp.desc,
+                                                                             temp.att,temp.def);
             }
             else {
-                card_template_t p1temp =  display_enchantment(temp->name,temp->cost,temp->desc);
+                p1temp =  display_enchantment(temp.name,temp.cost,temp.desc);
             }
         }
         
-        /// RITUAL COST!!!
-        if(temptype == CardType::Ritual){
-            CardType temp = CardType::Ritual;
-            temp = board1[i];
-            
-            card_template_t p1temp = display_ritual(temp->name, temp->Cost, temp->ablCost, temp->description , temp->charges);
+        if(temptype == "Ritual"){
+            p1temp = display_ritual(temp.name, temp.cost, temp.ritual_cost, temp.desc , temp.ritual_charges);
         }
+        
         veccard[10+i]=p1temp;
-        veccard[i] = p1temp;
+        vechand[i] = p1temp;
     }
     
     
-    for (int i = 0; i < board2.size(); i++) {
-        CardType temptype = board2[i] -> type;
+    for (int i = 0; i < board1.size(); i++) {
+        string temptype = board2[i].type;
+        CardInfo temp = board2[i];
+        card_template_t p2temp;
         
-        if(temptype == CardType::Minion){
+        if(temptype == "Minion"){
             
-            CardType temp = CardType::Minion;
-            temp = board2[i];
             
-            if(temp->silence){
-                card_template_t p2temp = display_minion_activated_ability(temp->name,temp->cost,temp->ATK,
-                                                                          temp->LP, temp->abilityCost, temp->description);
+            if(temp.ability_cost != 0){
+                p2temp = display_minion_activated_ability(temp.name,temp.cost,temp.att,
+                                                          temp.def, temp.ability_cost, temp.desc);
             }
             else{
-                card_template_t p2temp = display_minion_activated_ability(temp->name,temp->cost,
-                                                                          temp->ATK,temp->LP, temp->description);
-            }
+                p2temp = display_minion_activated_ability(temp.name,temp.cost,
+                                                          temp.att,temp.def, temp.desc)
+            };
         }
         
-        if(temptype == CardType::Spell){
-            CardType temp = CardType::Spell;
-            temp = board2[i];
-            card_template_t p2temp = display_spell(temp->name,temp->cost,temp->description);
+        if(temptype == "Spell"){
+            p2temp = display_spell(temp.name,temp.cost,temp.desc);
         }
         
-        if(temptype == GridCardType::Enchantment){
-            CardType temp = CardType::Enchantment;
-            temp = board2[i];
-            if(temp->attack_defence){
-                card_template_t p2temp =  display_enchantment_attack_defence(temp->name,temp->cost,temp->desc,
-                                                                             temp->ATK,temp->DEF);
+        if(temptype == "Enchantment"){
+            if(temp.withAttDef){
+                p2temp =  display_enchantment_attack_defence(temp.name,temp.cost,temp.desc,
+                                                             temp.att,temp.def);
             }
             else {
-                card_template_t p2temp =  display_enchantment(temp->name,temp->cost,temp->desc);
+                p2temp =  display_enchantment(temp.name,temp.cost,temp.desc);
             }
         }
         
-        /// RITUAL COST!!!
-        if(temptype == GridCardType::Ritual){
-            CardType temp = CardType::Ritual;
-            temp = board2[i];
-            card_template_t p2temp = display_ritual(temp->name, temp->Cost, temp->ablCost, temp->description , temp->charges);
+        if(temptype == "Ritual"){
+            p2temp = display_ritual(temp.name, temp.cost, temp.ritual_cost, temp.desc , temp.ritual_charges);
         }
+        
         veccard[5+i]=p2temp;
     }
+};
     
-}
+    
 
 
 
@@ -257,7 +253,7 @@ void TextDisplay::displayHelp(){
     cout << "         |   help -- Display this message.            |" << endl;
     cout << "         |   end -- End the current player's turn.    |" << endl;
     cout << "         |   quit -- End the game.                    |" << endl;
-    cout << "         |   attack minion other-minion --            |"<<endl
+    cout << "         |   attack minion other-minion --            |"<<endl;
     cout << "         |Orders minion to attack other-minion.       |"<< endl;
     cout << "         |   attack minion -- Orders minion to        |"<<endl;
     cout <<"          |attack the opponent.                        |"<< endl;
