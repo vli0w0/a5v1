@@ -60,6 +60,7 @@ public:
     int getLP();
     int getACost();
     bool getS();
+    int getAblCost();
     
     void setATK(int atk);
     void setLP(int lp);
