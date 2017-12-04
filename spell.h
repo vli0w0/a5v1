@@ -18,11 +18,13 @@ class Spell:public Card{
 	bool allAtk;
 	int atkVal=0;
 
+	CardInfo CInfo;
 public:
 	Spell(std::string s);
 	void play(PInfo &intr,PInfo &rcvr);
 	void play(PInfo &intr,PInfo &rcvr,bool val);
 	void play(PInfo &intr,PInfo &rcvr,int indx);
+	void updateCardInfo();
 }
 
 #endif
